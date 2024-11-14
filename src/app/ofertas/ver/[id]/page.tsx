@@ -69,10 +69,12 @@ export default function OfertaDetallesPage() {
     }, [id]);
 
     const nextImage = () => {
-        setCurrentImageIndex((prev) =>
-            prev === oferta?.imagenes.length - 1 ? 0 : prev + 1
-        );
-    };
+        if (oferta?.imagenes && oferta.imagenes.length > 0) {
+            setCurrentImageIndex((prev) =>
+                prev === oferta.imagenes.length - 1 ? 0 : prev + 1
+            );
+        }
+    };    
 
     const prevImage = () => {
         setCurrentImageIndex((prev) =>
